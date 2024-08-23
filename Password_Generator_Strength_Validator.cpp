@@ -34,4 +34,30 @@ string evaluatePasswordStrength(const string& password) {
     } else {
         return "Weak";
     }
+
+}
+
+int main() {
+    int length;
+
+    // Prompt user for the password length with input validation
+    do {
+        cout << "Enter the length of the password (minimum 6 characters): ";
+        cin >> length;
+        if (length < 6) {
+            cout << "Password length must be at least 6 characters. Please try again." << endl;
+        }
+    } while (length < 6);
+
+    // Generate the password
+    string password = generatePassword(length);
+
+    // Evaluate password strength
+    string strength = evaluatePasswordStrength(password);
+
+    // Display the password and its strength
+    cout << "Generated Password: " << password << endl;
+    cout << "Password Strength: " << strength << endl;
+
+    return 0;
 }
